@@ -4,7 +4,7 @@
  * Fired during plugin activation
  *
  * @link       https://www.waytocode.com
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage hab_Hide_Admin_Bar_Based_On_User_Roles/includes
@@ -15,7 +15,7 @@
  *
  * This class defines all code necessary to run during the plugin's activation.
  *
- * @since      1.1.1
+ * @since      1.3.0
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage hab_Hide_Admin_Bar_Based_On_User_Roles/includes
  * @author     Ankit Panchal <ankitmaru@live.in>
@@ -27,12 +27,13 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Activator {
 	 *
 	 * Long Description.
 	 *
-	 * @since    1.1.1
+	 * @since    1.3.0
 	 */
 	public static function activate() {
 		global $wpdb;
 
 		add_option("hab_settings", "" );
+		add_option("hab_reset_key", rand(0,999999999) );
 
 	}
 

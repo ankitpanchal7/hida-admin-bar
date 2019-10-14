@@ -4,7 +4,7 @@
  * The public-facing functionality of the plugin.
  *
  * @link       https://www.waytocode.com
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage hab_Hide_Admin_Bar_Based_On_User_Roles/public
@@ -25,7 +25,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.1.1
+	 * @since    1.3.0
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +34,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.1.1
+	 * @since    1.3.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +43,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.1.1
+	 * @since    1.3.0
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -57,7 +57,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.1.1
+	 * @since    1.3.0
 	 */
 	public function enqueue_styles() {
 
@@ -80,7 +80,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
-	 * @since    1.1.1
+	 * @since    1.3.0
 	 */
 	public function enqueue_scripts() {
 
@@ -110,6 +110,8 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
     	$hab_capabilities = ( isset($settings["hab_capabilities"]) )  ? explode(",",$settings["hab_capabilities"]) : "";
     	$hab_disableforall = ( isset($settings["hab_disableforall"]) ) ? $settings["hab_disableforall"] : "";
 
+    	$hab_disableforallGuests = ( isset($settings["hab_disableforallGuests"]) ) ? $settings["hab_disableforallGuests"] : "";
+
     	$userCap = 0;
     	if( is_array($hab_capabilities) ) {
 	    	foreach( $hab_capabilities as $caps ){
@@ -120,16 +122,21 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	    	}
     	}
 
-    	if( is_array($plgUserRoles) && array_intersect($plgUserRoles, $curUserObj->roles ) ) { 
-    		show_admin_bar( false );
-    	} else if( $userCap == 1 ){
-    		show_admin_bar( false );
-    	} else if( $hab_disableforall == 'yes' ){
+    	if( $hab_disableforall == 'yes' ){
     		show_admin_bar( false );
     	} else {
-    		show_admin_bar( true );
+    		if( is_array($plgUserRoles) && array_intersect($plgUserRoles, $curUserObj->roles ) ) { 
+	    		show_admin_bar( false );
+	    	}
+	    	if( $userCap == 1 ){
+	    		show_admin_bar( false );
+	    	}
+	    	if( $hab_disableforallGuests == 'yes' && !is_user_logged_in() ){
+	    		show_admin_bar( false );
+	    	}
     	}
-
+    	
 	}
+
 
 }
