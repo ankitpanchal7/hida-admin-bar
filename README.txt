@@ -3,7 +3,7 @@ Contributors: ankitmaru
 Donate link: https://paypal.me/ankitpanchalwp
 Tags: admin bar, hide admin bar, hide admin bar, admin bar hide, admin bar hide based on user roles, hide admin bar based on user capabilities, hide admin bar based on user roles
 Requires at least: 3.7.0
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.2.4
 Stable tag: 1.3
 License: GPLv2 or later
@@ -50,13 +50,13 @@ OR you can just install it with WordPress Admin Panel by going to Plugins / Add 
 
 == Frequently Asked Questions ==
 
-Is this plugin works with latest WordPress 5.2 versions?
+= Is this plugin works with latest WordPress 5.2 versions? =
 Yes, It is compatible with latest WordPress versions 3.9+
 
-Is it compatible with other 3rd party plugins and themes?
+= Is it compatible with other 3rd party plugins and themes? =
 Yes, It works fine with any 3rd party WordPress themes and plugins.
 
-Is this plugin hide admin bar for guest users as well?
+= Is this plugin hide admin bar for guest users as well? =
 Yes, This plugin hides admin bar for guest users as well.
 
 
@@ -72,6 +72,9 @@ Fixed some bugs and improvements and new feature added -> Hide admin bar for all
 
 = 1.3 =
 Code Improvements, GUI Updated.
+
+= 1.4 =
+Code Improvements, GUI Updated, New Feature Integration.
 
 == Upgrade Notice ==
 Always keep updated. We frequently provide latest updates to run plugin smoothly with all other WordPress plugins and themes.

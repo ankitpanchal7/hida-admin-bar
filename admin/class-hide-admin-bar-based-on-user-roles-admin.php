@@ -3,8 +3,8 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.waytocode.com
- * @since      1.3.0
+ * @link       https://iamankitp.com/
+ * @since      1.4.0
  *
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage hab_Hide_Admin_Bar_Based_On_User_Roles/admin
@@ -25,7 +25,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.3.0
+	 * @since    1.4.0
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +34,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.3.0
+	 * @since    1.4.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +43,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.3.0
+	 * @since    1.4.0
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -57,7 +57,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.3.0
+	 * @since    1.4.0
 	 */
 	public function enqueue_styles() {
 
@@ -88,7 +88,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    1.3.0
+	 * @since    1.4.0
 	 */
 	public function enqueue_scripts() {
 
@@ -123,13 +123,18 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 
 
 	public function generate_admin_menu_page() {
-		add_options_page( 
-			'Admin Bar Settings',
-			'Hide Admin Bar Settings',
-			'manage_options',
-			'hide-admin-bar-settings',
-			array( $this, 'hide_admin_bar_settings')
-		);
+
+		add_menu_page( __('Hide Admin Bar Settings'), __('Hide Admin Bar Settings'), 'manage_options', 'hide-admin-bar-settings', array($this,'hide_admin_bar_settings'),'dashicons-admin-generic' );
+
+		add_submenu_page('hide-admin-bar-settings', __('Login Page Customizer'), __('Login Page Customizer'), 'manage_options', 'hab-login-screen-customizer', array($this,'hide_admin_bar_login_customizer'));
+
+		add_submenu_page('hide-admin-bar-settings', __('Maintenance Mode'), __('Maintenance Mode'), 'manage_options', 'hab-login-coming-soon-template', array($this,'hide_admin_bar_login_customizer'));
+	}
+
+	public function hide_admin_bar_login_customizer() {
+
+		echo '<h1>Coming Soon</h1>';
+
 	}
 
 	public function hide_admin_bar_settings() {
@@ -274,7 +279,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
                                 <img class="d-block img-sm rounded-circle mx-auto mb-2" src="https://ps.w.org/advanced-page-visit-counter/assets/icon-128x128.png" alt="profile image">
                                 <p class="text-center user-name"><?php echo __("Advanced Page Visit Counter");?></p>
                                 <p class="text-center mb-2 comment">
-                                	<strong><?php echo __("1500+ Active Users in just 1 Month");?></strong><Br />
+                                	<strong><?php echo __("3000+ Active Users in just 1 Month");?></strong><Br />
                                 	<?php echo __("This plugin will count the total visits of your website or ecommerce store.");?></p>
                                 <a href="" target="_blank" class="text-center btn btn-info btn-rounded btn-fw"><?php echo __("Download Now");?></a></small>
                             </div>
