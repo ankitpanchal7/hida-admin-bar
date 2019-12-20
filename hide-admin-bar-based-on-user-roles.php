@@ -4,14 +4,14 @@
  * The plugin bootstrap file
  *
  * @link              https://iamankitp.com/
- * @since             1.4.0
+ * @since             1.0.0
  * @package           Hide_Admin_Bar_Based_On_User_Roles
  *
  * @wordpress-plugin
  * Plugin Name:       Hide Admin Bar Based on User Roles
  * Plugin URI:        https://wordpress.org/plugins/hide-admin-bar-based-on-user-roles/
  * Description:       This plugin is very useful to hide admin bar based on selected user roles and user capabilities.
- * Version:           1.4.0
+ * Version:           1.5.0
  * Author:            Ankit Panchal
  * Author URI:        https://profiles.wordpress.org/ankitmaru
  * License:           GPL-2.0+
@@ -42,10 +42,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.4.0 and use SemVer - https://semver.org
+ * Start at version 1.5.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'HIDE_ADMIN_BAR_BASED_ON_USER_ROLES', '1.4.0' );
+define( 'HIDE_ADMIN_BAR_BASED_ON_USER_ROLES', '1.5.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -116,7 +116,7 @@ if ( ! function_exists( 'habbour_fs' ) ) {
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.4.0
+ * @since    1.5.0
  */
 function hab_run_hide_admin_bar_based_on_user_roles() {
 

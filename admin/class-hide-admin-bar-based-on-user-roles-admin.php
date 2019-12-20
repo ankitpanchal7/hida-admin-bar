@@ -4,7 +4,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @link       https://iamankitp.com/
- * @since      1.4.0
+ * @since      1.5.0
  *
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage hab_Hide_Admin_Bar_Based_On_User_Roles/admin
@@ -25,7 +25,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.4.0
+	 * @since    1.5.0
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +34,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.4.0
+	 * @since    1.5.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +43,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.4.0
+	 * @since    1.5.0
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -57,7 +57,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.4.0
+	 * @since    1.5.0
 	 */
 	public function enqueue_styles() {
 
@@ -88,7 +88,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    1.4.0
+	 * @since    1.5.0
 	 */
 	public function enqueue_scripts() {
 
@@ -124,16 +124,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 
 	public function generate_admin_menu_page() {
 
-		add_menu_page( __('Hide Admin Bar Settings'), __('Hide Admin Bar Settings'), 'manage_options', 'hide-admin-bar-settings', array($this,'hide_admin_bar_settings'),'dashicons-admin-generic' );
-
-		add_submenu_page('hide-admin-bar-settings', __('Login Page Customizer'), __('Login Page Customizer'), 'manage_options', 'hab-login-screen-customizer', array($this,'hide_admin_bar_login_customizer'));
-
-		add_submenu_page('hide-admin-bar-settings', __('Maintenance Mode'), __('Maintenance Mode'), 'manage_options', 'hab-login-coming-soon-template', array($this,'hide_admin_bar_login_customizer'));
-	}
-
-	public function hide_admin_bar_login_customizer() {
-
-		echo '<h1>Coming Soon</h1>';
+		add_options_page(__('Hide Admin Bar Settings','hide-admin-bar-based-on-user-roles'), __('Hide Admin Bar Settings','hide-admin-bar-based-on-user-roles'), 'manage_options', 'hide-admin-bar-settings', array($this,'hide_admin_bar_settings') );
 
 	}
 
@@ -154,12 +145,12 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h3><?php echo __('Hide Admin Bar Based on User Roles');?></h3><br />
+                        <h3><?php echo __('Hide Admin Bar Based on User Roles','hide-admin-bar-based-on-user-roles');?></h3><br />
                         <form class="form-sample">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label"><?php echo __('Hide Admin Bar for All Users');?></label>
+                                        <label class="col-sm-6 col-form-label"><?php echo __('Hide Admin Bar for All Users','hide-admin-bar-based-on-user-roles');?></label>
                                         <div class="col-sm-6">
                                         	<?php 
 												$disableForAll = ( isset($settings["hab_disableforall"]) ) ? $settings["hab_disableforall"] : "";
@@ -177,7 +168,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label"><?php echo __('Hide Admin Bar for All Guests Users');?></label>
+                                        <label class="col-sm-6 col-form-label"><?php echo __('Hide Admin Bar for All Guests Users','hide-admin-bar-based-on-user-roles');?></label>
                                         <div class="col-sm-6">
                                         	<?php 
 												$disableForAllGuests = ( isset($settings["hab_disableforallGuests"]) ) ? $settings["hab_disableforallGuests"] : "";
@@ -194,7 +185,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label"><?php echo __('User Roles');?><br /><br /><?php echo __('Hide admin bar for selected user roles.');?></label>
+                                        <label class="col-sm-6 col-form-label"><?php echo __('User Roles','hide-admin-bar-based-on-user-roles');?><br /><br /><?php echo __('Hide admin bar for selected user roles.','hide-admin-bar-based-on-user-roles');?></label>
                                         <div class="col-sm-6">
                                         	<?php 
 												global $wp_roles;
@@ -221,7 +212,9 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label"><?php echo __('Capabilities Blacklist <br /><p style="margin:0px;">'.__('<br />(Hide admin bar for selected user capabilities.)').'</p>');?></label>
+                                        <label class="col-sm-6 col-form-label"><?php echo __('Capabilities Blacklist','hide-admin-bar-based-on-user-roles');
+                                        	echo '<br />';
+                                        	echo __('Hide admin bar for selected user capabilities','hide-admin-bar-based-on-user-roles');?></label>
                                         <div class="col-sm-6">
                                         	<?php 
 												$caps = (isset($settings["hab_capabilities"])) ? $settings["hab_capabilities"] : "";
@@ -236,13 +229,45 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
                         	<?php } ?>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary btn-fw" id="submit_roles"><?php echo __("Save Changes");?></button>
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label"><?php echo __('Login Screen Logo','hide-admin-bar-based-on-user-roles');
+                                        	echo '<br />';
+                                        	?></label>
+                                        <div class="col-sm-6">
+                                        	<?php 
+                                        		wp_enqueue_media();
+
+												$login_logo = (isset($settings["hab_image_attachment_id"])) ? $settings["hab_image_attachment_id"] : "";
+											?>
+                                        <div>
+                                <?php 
+                                if( !empty( $login_logo ) ) { ?>
+	                                <div class='image-preview-wrapper'>
+										<img id='image-preview' src='<?php echo wp_get_attachment_url( $login_logo ); ?>' width='100' height='100' style='max-height: 100px; width: 100px;' alt="logo">
+									</div>
+									<input id="hab_remove_image" type="button" class="button" value="<?php _e( 'Remove image' ); ?>" />
+								<?php } ?>
+
+								<input id="upload_image_button" type="button" class="button" value="<?php _e( 'Upload image' ); ?>" />
+
+								<input type='hidden' name='image_attachment_id' id='image_attachment_id' value=''>
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary btn-fw" id="submit_roles"><?php echo __("Save Changes",'hide-admin-bar-based-on-user-roles');?></button>
                                 </div>
                                 <div class="col-md-12">
                                 	<br />
-                                	<p><?php echo __("You can reset plugin settings by visiting this url without login to admin panel. Keep it safe."); ?><br /><a href="<?php echo admin_url()."options-general.php?page=hide-admin-bar-settings&reset_plugin=".$hab_reset_key;?>" target="_blank"><?php echo admin_url()."options-general.php?page=hide-admin-bar-settings&reset_plugin=".$hab_reset_key;?></a></p>
+                                	<p><?php echo __("You can reset plugin settings by visiting this url without login to admin panel. Keep it safe.",'hide-admin-bar-based-on-user-roles'); ?><br /><a href="<?php echo admin_url()."options-general.php?page=hide-admin-bar-settings&reset_plugin=".$hab_reset_key;?>" target="_blank"><?php echo admin_url()."options-general.php?page=hide-admin-bar-settings&reset_plugin=".$hab_reset_key;?></a></p>
                                 </div>
                             </div>
+
                         </form>
                         <script>
                         	if (jQuery('#had_capabilities').length) {
@@ -262,70 +287,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
                 </div>
             </div>
         </div>
-        <div class="container-wrapper">
-            <div class="col-12 grid-margin">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 stretch-card">
-                        <div class="card card-statistics social-card card-default">
-                            <div class="card-header header-sm">
-                                <div class="d-flex align-items-center">
-                                <div class="wrapper d-flex align-items-center media-info text-wordpress">
-                                    <i class="mdi mdi-wordpress icon-md"></i>
-                                    <h2 class="card-title ml-3"><?php echo __("Download My New Plugin");?></h5>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <img class="d-block img-sm rounded-circle mx-auto mb-2" src="https://ps.w.org/advanced-page-visit-counter/assets/icon-128x128.png" alt="profile image">
-                                <p class="text-center user-name"><?php echo __("Advanced Page Visit Counter");?></p>
-                                <p class="text-center mb-2 comment">
-                                	<strong><?php echo __("3000+ Active Users in just 1 Month");?></strong><Br />
-                                	<?php echo __("This plugin will count the total visits of your website or ecommerce store.");?></p>
-                                <a href="" target="_blank" class="text-center btn btn-info btn-rounded btn-fw"><?php echo __("Download Now");?></a></small>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 stretch-card">
-                            <div class="card card-statistics social-card card-default">
-                            <div class="card-header header-sm">
-                                <div class="d-flex align-items-center">
-                                <div class="wrapper d-flex align-items-center media-info text-twitter">
-                                    <i class="mdi mdi-twitter icon-md"></i>
-                                    <h2 class="card-title ml-3"><?php echo __("Follow me on Twitter");?></h2>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <img class="d-block img-sm rounded-circle mx-auto mb-2" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/author.png';?>" alt="profile image">
-                                <p class="text-center user-name"><?php echo __("Ankit Panchal"); ?></p>
-                                <p class="text-center mb-2 comment"><?php echo __("I am WordPress Fan, Developer and Contributor. <br />WordPress Plugin Author, WordPress Contributor - TemplateMonster Certified Developer");?></p>
-                                <a href="https://twitter.com/ankit__panchal" target="_blank" class="text-center btn btn-info btn-rounded btn-fw"><?php echo __("View Profile");?></a></small>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 stretch-card">
-                            <div class="card card-statistics social-card card-default">
-                            <div class="card-header header-sm">
-                                <div class="d-flex align-items-center">
-                                <div class="wrapper d-flex align-items-center media-info text-wordpress">
-                                    <i class="mdi mdi-wordpress icon-md"></i>
-                                    <h2 class="card-title ml-3"><?php echo __("Follow Me On WordPress");?></h5>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <img class="d-block img-sm rounded-circle mx-auto mb-2" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/author.png';?>" alt="profile image">
-                                <p class="text-center user-name"><?php echo __("Ankit Panchal");?></p>
-                                <p class="text-center mb-2 comment"><?php echo __("I am WordPress Fan, Developer and Contributor. <br />WordPress Plugin Author, WordPress Contributor - TemplateMonster Certified Developer</p>");?>
-                                <a href="https://profiles.wordpress.org/ankitmaru/" target="_blank" class="text-center btn btn-info btn-rounded btn-fw"><?php echo __("View Profile");?></a></small>
-                            </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div class="container-wrapper">
         	<div class="col-12 grid-margin">
 		        <div class="advertisement">
@@ -342,6 +304,56 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 		<?php
 	}
 
+
+	public function hab_admin_footer_scripts(){
+		global $wpdb;
+
+		$settings = get_option("hab_settings");
+		$hab_image_attachment_id = $settings['hab_image_attachment_id'];
+	?>
+	<script type='text/javascript'>
+		jQuery( document ).ready( function( $ ) {
+
+			var file_frame;
+			var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
+			var set_to_post_id = '<?php echo $hab_image_attachment_id; ?>'; // Set this
+			jQuery('#upload_image_button').on('click', function( event ){
+				event.preventDefault();
+				if ( file_frame ) {
+					file_frame.uploader.uploader.param( 'post_id', set_to_post_id );
+					file_frame.open();
+					return;
+				} else {
+					wp.media.model.settings.post.id = set_to_post_id;
+				}
+
+				file_frame = wp.media.frames.file_frame = wp.media({
+					title: 'Select a image to upload',
+					button: {
+						text: 'Use this image',
+					},
+					multiple: false
+				});
+				
+				file_frame.on( 'select', function() {
+				
+					attachment = file_frame.state().get('selection').first().toJSON();
+					$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
+					$( '#image_attachment_id' ).val( attachment.id );
+					wp.media.model.settings.post.id = wp_media_post_id;
+				});
+				file_frame.open();
+			});
+
+			jQuery( 'a.add_media' ).on( 'click', function() {
+				wp.media.model.settings.post.id = wp_media_post_id;
+				jQuery("#hab_remove_image").show();
+        		jQuery(".image-preview-wrapper").show();
+			});
+		});
+	</script><?php
+	}
+
 	public function save_user_roles(){
 		global $wpdb;
 
@@ -350,7 +362,8 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 		$disableForAll = $_REQUEST['disableForAll'];
 		$auto_hide_time = $_REQUEST['auto_hide_time']; 		
 		$autoHideFlag = $_REQUEST['autoHideFlag']; 		
-		$forGuests = $_REQUEST['forGuests']; 		
+		$forGuests = $_REQUEST['forGuests'];
+		$image_attachment_id = $_REQUEST['image_attachment_id'];
 		
 		$settings = array();
 		$settings['hab_disableforall'] = $disableForAll;
@@ -361,6 +374,8 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Admin {
 			$settings['hab_auto_hide_time'] = $auto_hide_time;
 			$settings['hab_auto_hide_flag'] = $autoHideFlag;
 			$settings['hab_disableforallGuests'] = $forGuests;
+			$settings['hab_image_attachment_id'] = $image_attachment_id;
+			
 		}
 		update_option("hab_settings",$settings);
 
