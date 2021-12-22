@@ -1,11 +1,13 @@
 ﻿=== Hide Admin Bar Based on User Roles ===
 Contributors: ankitmaru
-Donate link: https://paypal.me/ankitpanchalwp
 Tags: admin bar, hide admin bar, hide admin bar, admin bar hide, admin bar hide based on user roles, hide admin bar based on user capabilities, hide admin bar based on user roles
+Plugin URI: https://iamankitpanchal.com
+Author: Ankit Panchal
+Author URI: https://iamankitpanchal.com
 Requires at least: 3.7.0
-Tested up to: 5.3
-Requires PHP: 5.2.4
-Stable tag: 1.4
+Tested up to: 5.8
+Requires PHP: 5.6
+Stable tag: 2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +16,12 @@ Very simple plugin to hide admin bar based on selected user roles and user capab
 
 == Description ==
 This plugin is very useful to hide admin bar based on selected user roles and user capabilities.
+
+> Simple but great plugin. 🙂
+> - [wptoolsdev](https://wordpress.org/support/topic/simple-but-great-plugin-12/)
+
+> Works flawlessly! 🙂
+> - [thebrazeneye](https://wordpress.org/support/topic/works-flawlessly-129/)
 
 == Features ==
 1. Hide Admin Bar for All Users	=> By using this feature you can hide admin bar from frontend for all user types.(User Roles)
@@ -27,6 +35,8 @@ This plugin is very useful to hide admin bar based on selected user roles and us
 == You can check our other plugins: ==
 <ol>
 <li> <a href ="https://wordpress.org/plugins/advanced-page-visit-counter/">Page Visit Counter
+</a></li>
+<li> <a href ="https://wordpress.org/plugins/disable-block-editor-fullscreen-mode/">Disable Block Editor FullScreen mode
 </a></li>
 </ol>
 Page visit counter provides very detailed statistics of the visits data. This plugin provides visual charts to show your visits statistics with beautiful and detailed charts, There are lot’s features in this plugin you can check below for more details.
@@ -50,7 +60,7 @@ OR you can just install it with WordPress Admin Panel by going to Plugins / Add 
 
 == Frequently Asked Questions ==
 
-= Is this plugin works with latest WordPress 5.3 versions? =
+= Is this plugin works with latest WordPress 5.5.2 versions? =
 Yes, It is compatible with latest WordPress versions 3.9+
 
 = Is it compatible with other 3rd party plugins and themes? =
@@ -75,6 +85,51 @@ Code Improvements, GUI Updated.
 
 = 1.4 =
 Code Improvements, GUI Updated, New Feature Integration.
+
+= 1.5 =
+Bug Fixes & Improvements
+
+= 1.6 =
+Bug Fixes & Improvements
+
+= 1.6.1 =
+Bug Fixes & Improvements
+
+= 1.7.0 =
+Bug Fixes & Improvements
+
+= 1.8.0 =
+Bug Fixes & Improvements
+
+= 2.0.0 =
+Bug Fixes & Improvements
+
+= 2.1.0 =
+Improvements
+
+= 2.2.0 =
+Improvements
+
+= 2.3.0 =
+Improvements
+
+= 2.4.0 =
+Improvements
+
+= 2.5.0 =
+Improvements
+
+= 2.6.0 =
+Improvements
+
+= 2.7.0 =
+Improvements & Fixes
+
+= 2.8.0 =
+Improvements & Fixes
+
+= 2.9.0 =
+Improvements & Fixes
 
 == Upgrade Notice ==
 Always keep updated. We frequently provide latest updates to run plugin smoothly with all other WordPress plugins and themes.

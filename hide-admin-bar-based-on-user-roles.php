@@ -3,17 +3,18 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://iamankitp.com/
+ * @link              https://iamankitpanchal.com/
  * @since             1.0.0
  * @package           Hide_Admin_Bar_Based_On_User_Roles
  *
+ *
  * @wordpress-plugin
- * Plugin Name:       Hide Admin Bar Based on User Roles
+ * Plugin Name:       Hide Admin Bar From Front End
  * Plugin URI:        https://wordpress.org/plugins/hide-admin-bar-based-on-user-roles/
  * Description:       This plugin is very useful to hide admin bar based on selected user roles and user capabilities.
- * Version:           1.5.0
+ * Version:           2.9.0
  * Author:            Ankit Panchal
- * Author URI:        https://profiles.wordpress.org/ankitmaru
+ * Author URI:        https://iamankitpanchal.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       hide-admin-bar-based-on-user-roles
@@ -42,10 +43,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.5.0 and use SemVer - https://semver.org
+ * Start at version 1.7.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'HIDE_ADMIN_BAR_BASED_ON_USER_ROLES', '1.5.0' );
+define( 'HIDE_ADMIN_BAR_BASED_ON_USER_ROLES', '2.9.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -74,41 +75,6 @@ register_deactivation_hook( __FILE__, 'hab_deactivate_hide_admin_bar_based_on_us
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-hide-admin-bar-based-on-user-roles.php';
 
-
-if ( ! function_exists( 'habbour_fs' ) ) {
-    // Create a helper function for easy SDK access.
-    function habbour_fs() {
-        global $habbour_fs;
-
-        if ( ! isset( $habbour_fs ) ) {
-            // Include Freemius SDK.
-            require_once dirname(__FILE__) . '/includes/freemius/start.php';
-
-            $habbour_fs = fs_dynamic_init( array(
-                'id'                  => '5049',
-                'slug'                => 'hide-admin-bar-based-on-user-roles',
-                'type'                => 'plugin',
-                'public_key'          => 'pk_d4f58a9fd1f6a3a4b8daefe7e2d1d',
-                'is_premium'          => false,
-                'has_addons'          => false,
-                'has_paid_plans'      => false,
-                'menu'                => array(
-                    'slug'           => 'hide-admin-bar-settings',
-                    'first-path'     => 'admin.php?page=hide-admin-bar-settings',
-                    'account'        => false,
-                ),
-            ) );
-        }
-
-        return $habbour_fs;
-    }
-
-    // Init Freemius.
-    habbour_fs();
-    // Signal that SDK was initiated.
-    do_action( 'habbour_fs_loaded' );
-}
-
 /**
  * Begins execution of the plugin.
  *
@@ -116,7 +82,7 @@ if ( ! function_exists( 'habbour_fs' ) ) {
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.5.0
+ * @since    1.7.0
  */
 function hab_run_hide_admin_bar_based_on_user_roles() {
 

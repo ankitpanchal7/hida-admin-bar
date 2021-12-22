@@ -4,7 +4,7 @@
  * The public-facing functionality of the plugin.
  *
  * @link       https://iamankitp.com/
- * @since      1.5.0
+ * @since      1.7.0
  *
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage hab_Hide_Admin_Bar_Based_On_User_Roles/public
@@ -25,7 +25,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.5.0
+	 * @since    1.7.0
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +34,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.5.0
+	 * @since    1.7.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +43,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.5.0
+	 * @since    1.7.0
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -57,7 +57,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.5.0
+	 * @since    1.7.0
 	 */
 	public function enqueue_styles() {
 
@@ -80,7 +80,7 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
-	 * @since    1.5.0
+	 * @since    1.7.0
 	 */
 	public function enqueue_scripts() {
 
@@ -138,17 +138,5 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles_Public {
     	
 	}
 
-
-	public function hab_change_admin_login_logo(){
-		global $wpdb;
-		?> 
-		<style type="text/css"> 
-			body.login div#login h1 a {
-			 background-image: url(http://pigment.github.io/fake-logos/logos/large/color/cheshire-county-hygiene-services.png);
-			padding-bottom: 30px; 
-		} 
-		</style>
-		<?php 
-	}
 
 }

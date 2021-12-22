@@ -6,7 +6,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  *
  * @link       https://iamankitp.com/
- * @since      1.5.0
+ * @since      1.7.0
  *
  * @package    Hide_Admin_Bar_Based_On_User_Roles
  * @subpackage Hide_Admin_Bar_Based_On_User_Roles/admin/partials
