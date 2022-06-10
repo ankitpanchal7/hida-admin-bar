@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://iamankitp.com/
+ * @link       https://iamankitpanchal.com/
  * @since      1.7.0
  *
  * @package    hab_Hide_Admin_Bar_Based_On_User_Roles
@@ -67,8 +67,8 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles {
 	 * @since    1.7.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'HIDE_ADMIN_BAR_BASED_ON_USER_ROLES' ) ) {
+			$this->version = HIDE_ADMIN_BAR_BASED_ON_USER_ROLES;
 		} else {
 			$this->version = '1.7.0';
 		}
@@ -157,10 +157,12 @@ class hab_Hide_Admin_Bar_Based_On_User_Roles {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'generate_admin_menu_page' );
-		$this->loader->add_action( 'wp_ajax_save_user_roles', $plugin_admin, 'save_user_roles' );
+		$this->loader->add_action( 'wp_ajax_hab_save_user_roles', $plugin_admin, 'save_user_roles' );
 		$this->loader->add_action( 'upgrader_process_complete', $plugin_admin, 'upgrader_process_complete' );
 
-		 
+		if( is_multisite()) {
+			$this->loader->add_action( 'network_admin_menu', $plugin_admin, 'generate_network_admin_menu_page' ); 
+		}
 		
 		
 	}
